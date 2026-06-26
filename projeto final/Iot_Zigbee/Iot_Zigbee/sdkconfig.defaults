@@ -1,0 +1,13 @@
+CONFIG_IDF_TARGET="esp32c6"
+
+# Zigbee stack (esp-zigbee-lib) — papel de End Device, radio nativo 802.15.4
+CONFIG_ZB_ENABLED=y
+CONFIG_ZB_ZED=y
+CONFIG_ZB_RADIO_NATIVE=y
+
+# Tabela de particoes customizada (precisa de slots zb_storage/zb_fct para o stack Zigbee)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# Em caso de panic/crash, fica parado mostrando o dump em vez de reiniciar sozinho
+CONFIG_ESP_SYSTEM_PANIC_PRINT_HALT=y

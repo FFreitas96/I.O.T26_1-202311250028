@@ -1,0 +1,42 @@
+dependencies:
+  espressif/ds18b20:
+    dependencies: []
+    source:
+      path: C:\Users\luizn\Iot_Zigbee\managed_components\espressif__ds18b20
+      type: local
+    version: 0.4.0
+  espressif/esp-zboss-lib:
+    dependencies: []
+    source:
+      path: C:\Users\luizn\Iot_Zigbee\managed_components\espressif__esp-zboss-lib
+      type: local
+    version: 1.6.4
+  espressif/esp-zigbee-lib:
+    dependencies: []
+    source:
+      path: C:\Users\luizn\Iot_Zigbee\managed_components\espressif__esp-zigbee-lib
+      type: local
+    version: 1.6.8
+  espressif/onewire_bus:
+    component_hash: a85dc1ceb71fb87af77c57d5fd4e6f48a504de1fc2b83fc302ec0cea331d05ce
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.1.1
+  idf:
+    source:
+      type: idf
+    version: 5.5.1
+direct_dependencies:
+- espressif/ds18b20
+- espressif/esp-zboss-lib
+- espressif/esp-zigbee-lib
+- espressif/onewire_bus
+- idf
+manifest_hash: cefbf23724f5909d270a8428359998d0a8932a11cfd8be8b284ea8eae81e3150
+target: esp32c6
+version: 2.0.0

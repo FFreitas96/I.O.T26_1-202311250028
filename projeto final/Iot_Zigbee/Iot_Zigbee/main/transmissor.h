@@ -1,0 +1,37 @@
+#pragma once
+
+#include "esp_zigbee_core.h"
+
+#define INSTALLCODE_POLICY_ENABLE   false
+#define ED_AGING_TIMEOUT            ESP_ZB_ED_AGING_TIMEOUT_64MIN
+#define ED_KEEP_ALIVE               3000
+#define HA_ESP_SENSOR_ENDPOINT      10
+#define ESP_ZB_PRIMARY_CHANNEL_MASK ESP_ZB_TRANSCEIVER_ALL_CHANNELS_MASK
+
+#define DS18B20_GPIO_NUM              (4)
+#define TEMP_SENSOR_UPDATE_INTERVAL_S (1)
+#define TEMP_SENSOR_MIN_VALUE_C       (-10)
+#define TEMP_SENSOR_MAX_VALUE_C       (80)
+
+#define ESP_ZB_ZED_CONFIG()                                \
+    {                                                       \
+        .esp_zb_role = ESP_ZB_DEVICE_TYPE_ED,                \
+        .install_code_policy = INSTALLCODE_POLICY_ENABLE,    \
+        .nwk_cfg.zed_cfg = {                                 \
+            .ed_timeout = ED_AGING_TIMEOUT,                  \
+            .keep_alive = ED_KEEP_ALIVE,                      \
+        },                                                   \
+    }
+
+#define ESP_ZB_DEFAULT_RADIO_CONFIG()      \
+    {                                       \
+        .radio_mode = ZB_RADIO_MODE_NATIVE, \
+    }
+
+#define ESP_ZB_DEFAULT_HOST_CONFIG()                    \
+    {                                                     \
+        .host_connection_mode = ZB_HOST_CONNECTION_MODE_NONE, \
+    }
+
+/* Inicializa a stack Zigbee e sobe a task que envia a temperatura */
+void transmissor_start(void);
